@@ -39,7 +39,7 @@ left join dept_emp de on d.dept_no = de.dept_no
 left join employees e on de.emp_no = e.emp_no
 where d.dept_name in ('Sales', 'Development');
 
--- #8: List the frequency count of employee last names, i.e., how many empployees share the same last name.
+-- #8: List the frequency count of employee last names in descending order, i.e., how many empployees share the same last name.
 select last_name, count(last_name) as "count"
 from employees
 group by last_name
