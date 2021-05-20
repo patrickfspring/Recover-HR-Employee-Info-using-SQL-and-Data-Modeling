@@ -1,0 +1,118 @@
+from sqlalchemy import create_engine
+
+database_path = "../Resources/icecreamstore.sqlite"
+
+engine = create_engine(f"sqlite:///{database_path}")
+
+data = engine.execute("SELECT * FROM icecreamstore")
+for record in data:
+    print(record)
+
+data = engine.execute("SELECT * FROM icecreamstore WHERE Price>=1.25;")
+for record in data:
+    print(record)
+
+data = engine.execute("Select * From (name))
+keys = engine.execute("Select * From (name)).keys()
+
+data = engine.execute(....
+for record in data:
+  print(record)
+
+data.keys()
+census_database_path = "../Resources/Census_Data.sqlite"
+engine = create_engine(f"sqlite:///{census_database_path}")
+conn = engine.connect()
+census_data = pd.read_sql("SELECT * FROM Census_Data", conn)
+zip_database_path = "../Resources/zip_census.sqlite"
+engine = create_engine(f"sqlite:///{zip_database_path}")
+conn = engine.connect()
+zip_data = pd.read_sql("SELECT * FROM Zip_Census", conn)
+census_data.head()
+
+# Define the Surfer Class
+class Surfer():
+
+  # Initialize the Surfer constructor 
+  def __init__(self, name, hometown, rank):
+      self.name = name + " " + "Dude"
+      self.hometown = hometown + " " + "Waves"
+      self.rank = rank
+
+surfer = Surfer('Kelly Slater', 'Cocoa Beach', 1)
+print(surfer.name)
+print(surfer.hometown)
+print(surfer.rank)
+
+**************************************************************
+class Surfer():
+
+    # Keep track of surfer count as they are created
+    surferCount = 0
+
+    # Constructor
+    # --------------------------------------------------------------------------------
+    # Initialize the surfer and assign each surfer a new surfer count upon creation
+    def __init__(self, name, hometown, rank, wipeouts=0):
+        self.name = name
+        self.hometown = hometown
+        self.rank = rank
+        self.wipeouts = wipeouts
+        Surfer.surferCount += 1
+    
+    # Class Methods
+    # --------------------------------------------------------------------------------
+    # Prints what number surfer they are based on when they were created
+    def surfer_count(self):
+         print("Total surfers shredding waves %d" % Surfer.surferCount)
+
+    # Prints out simple string
+    def speak(self):
+        print("Hang loose bruh!")
+
+    # Interpolates based on their attributes
+    def biography(self):
+        print(f"My name is {self.name}, I am from {self.hometown} and rank #{self.rank}, I've wiped out {self.wipeouts} times!")
+
+    # Check how many wipeouts and print out a statement
+    def cheer(self):
+        if self.wipeouts == 0:
+            print('I totally rock man, no wipeouts!')
+        else:
+            print('Bummer bruh, keep on keeping on!')
+
+
+surfer = Surfer('Kelly Slater', 'Cocoa Beach', 1,)
+print(surfer.name)
+print(surfer.hometown)
+print(surfer.rank)
+print(surfer.wipeouts)
+surfer.speak()
+surfer.biography()
+surfer.cheer()
+surfer.surfer_count()
+
+# Create a new surfer named "Bruno"
+surfer = Surfer(name='Bruno', hometown="LA", rank=10)
+# Create a new board and associate it with a surfer's ID
+board = Board(surfer_id=1, board_name="Awwwyeah", color="Blue", length=68)
+
+engine = create_engine("sqlite:///surfer.sqlite")
+conn = engine.connect()
+
+Base.metadata.create_all(conn)
+
+from sqlalchemy.orm import Session
+session = Session(bind=engine)
+
+session.add(surfer)
+# Add "Awwwyeah" to the current session
+session.add(board)
+# Commit both objects to the database
+session.commit()
+
+surfer_list = session.query(Surfer)
+for bro in surfer_list:
+    print(bro.name)
+    print(bro.hometown)
+    print(bro.rank)
