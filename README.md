@@ -1,7 +1,9 @@
-# sql-challenge
-SQL Challenge
+Recover HR Employee Info using SQL and Data Modeling.
 
-The project contents include the following:                                                                                                 
+The following effort involved designing a data model for a remaining set of employee files, loading the data from CSV files and running a set of queries
+to review the validity of the data. 
+
+The deliverables and tasks are included in the following list:                                                                                                 
 1.) Six CSV data files used to load the tables.                                                                                                
 2.) An image file of the ERD.                                                                                             
 3.) A SQL file of the table(s) schemata.                                                                                     
